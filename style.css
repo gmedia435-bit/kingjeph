@@ -361,32 +361,8 @@ h2 em { font-style: italic; font-weight: 600; }
   flex-wrap: wrap;
   transition-delay: 0.4s;
 }
-.hero-scroll-hint {
-  position: absolute;
-  bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 2;
-  animation: fadeInUp 1.5s ease 1.5s both;
-}
-.hero-scroll-hint span {
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-}
-.scroll-line {
-  width: 1px; height: 50px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
-  animation: scrollPulse 2s ease infinite;
-}
-@keyframes scrollPulse {
-  0%,100% { opacity: 0.4; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.2); }
-}
+
+
 
 /* =====================
    PAIN SECTION
