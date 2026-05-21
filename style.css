@@ -62,11 +62,14 @@ ul { list-style: none; }
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 1.2rem 0;
-  transition: background var(--transition), padding var(--transition), backdrop-filter var(--transition);
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: background var(--transition), padding var(--transition), border-color var(--transition);
 }
 #navbar.scrolled {
-  background: rgba(10,10,10,0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(10,10,10,0.98);
   padding: 0.7rem 0;
   border-bottom: 1px solid #1f1f1f;
 }
@@ -875,13 +878,15 @@ footer h4 {
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
+  #navbar {
+    background: rgba(10,10,10,0.98);
+    border-bottom: 1px solid #1f1f1f;
+  }
   .nav-inner { padding: 0 1.2rem; }
   .nav-logo img { height: 40px; }
-  .nav-brand-text { font-size: 1rem; display: none; } /* Hide full text on very small screens, or we can make it small. Let's make it small */
-  .nav-brand-text { font-size: 1rem; display: block; }
+  .nav-brand-text { font-size: 0.85rem; }
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
-  .mobile-menu { display: flex; }
 
   .hero-headline { font-size: clamp(2.8rem, 14vw, 5rem); }
   .hero-btns { flex-direction: column; align-items: center; }
