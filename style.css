@@ -614,31 +614,37 @@ h2 em { font-style: italic; font-weight: 600; }
 .testimonials-section {
   padding: 8rem 0;
   background: var(--grey);
-  overflow: hidden;
 }
 .testi-track-wrap {
-  overflow: hidden;
   margin-top: 3rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding-bottom: 0.5rem;
+}
+.testi-track-wrap::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 .testi-track {
   display: flex;
   gap: 1.5rem;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
+  /* No JS transform needed — native scroll handles it */
 }
 .testi-card {
-  min-width: calc(33.333% - 1rem);
+  width: 380px;
+  min-width: 380px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
   background: #0f0f0f;
   border: 1px solid #1c1c1c;
-  padding: 3rem 2.2rem;
+  padding: 2.8rem 2.2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex-shrink: 0;
-  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 .testi-card:hover {
-  transform: translateY(-8px);
   border-color: #333333;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
@@ -655,7 +661,7 @@ h2 em { font-style: italic; font-weight: 600; }
   font-style: italic;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.65;
+  line-height: 1.7;
   margin-bottom: 2.5rem;
   flex-grow: 1;
 }
@@ -664,6 +670,8 @@ h2 em { font-style: italic; font-weight: 600; }
   align-items: center;
   gap: 0.85rem;
   margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1c1c1c;
 }
 .testi-avatar {
   width: 44px;
@@ -694,32 +702,8 @@ h2 em { font-style: italic; font-weight: 600; }
   color: #666;
 }
 .testi-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
+  display: none; /* Hidden — using native CSS scroll instead */
 }
-.testi-btn {
-  background: none;
-  border: 1px solid #444;
-  color: var(--white);
-  width: 44px; height: 44px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background var(--transition), border-color var(--transition);
-  display: flex; align-items: center; justify-content: center;
-}
-.testi-btn:hover { background: var(--white); color: var(--black); border-color: var(--white); }
-.testi-dots { display: flex; gap: 0.5rem; }
-.testi-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #444;
-  cursor: pointer;
-  transition: background var(--transition), transform var(--transition);
-}
-.testi-dot.active { background: var(--white); transform: scale(1.3); }
 
 /* =====================
    CTA BANNER
